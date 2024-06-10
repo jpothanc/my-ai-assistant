@@ -1,4 +1,14 @@
 # My personal AI assistant using RAG and ChromaDB
+I have been preparing for the az-900 exam and I wanted to create a personal AI assistant that can help me with my preparation. 
+I have used the RAG model from huggingface and ChromaDB to create this assistant.
+
+# setup
+Python version 3.12.0
+Set up a virtual environment
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
 
 ## Install dependencies
 ```python
@@ -23,9 +33,9 @@ python retrieve_data.py
 * feed in these responses to openai to get the best response.
 
 ```python
-python query_data.py "What is iaas, paas and saas?"
+python query_data.py
 ```
 
-What is ChromaDB?
+## What is ChromaDB?
 ChromaDB is a specialized database designed to handle high-dimensional vectors. Vectors are mathematical representations of data, often used in machine learning and artificial intelligence to capture the meaning or characteristics of the data. ChromaDB helps store, manage, and search through these vectors efficiently.
 
