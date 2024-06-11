@@ -36,6 +36,5 @@ python retrieve_data.py
 python query_data.py
 ```
 
-## What is ChromaDB?
-ChromaDB is a specialized database designed to handle high-dimensional vectors. Vectors are mathematical representations of data, often used in machine learning and artificial intelligence to capture the meaning or characteristics of the data. ChromaDB helps store, manage, and search through these vectors efficiently.
+[Read my article](https://medium.com/@kaljessy/personal-ai-assitant-using-rag-and-chromadb-6fd5c259da41)
 
