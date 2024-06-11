@@ -30,7 +30,7 @@ def query_chroma(query_text):
     print(formatted_response)
 
 
-def main():
+def query_data():
     while True:
         user_input = input("Enter your question:").lower()
         if user_input == "exit":
@@ -40,4 +40,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    query_data()
