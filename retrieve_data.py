@@ -14,22 +14,20 @@ from constants import DATA_PATH, CHROMA_DB_PATH, CHUNK_SIZE, CHUNK_OVERLAP
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
-def main():
-    retrieve_data()
-
-
 def retrieve_data():
     documents = load_documents()
     chunks = split_text(documents)
     save_to_chroma(chunks)
 
 
+# Load my Azure Notes which is in Markdown format.
 def load_documents():
     loader = DirectoryLoader(DATA_PATH, glob="*.md")
     documents = loader.load()
     return documents
 
 
+# Split the data into paragraphs.
 def split_text(documents: list[Document]):
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=CHUNK_SIZE,
@@ -47,6 +45,9 @@ def split_text(documents: list[Document]):
     return chunks
 
 
+# Chroma is a vector store that can be used to store and retrieve embeddings of text data.
+# Save the split chunks in to Chroma DB after converting this in to embeddings.
+# We use openai embeddings to convert the text to embeddings.
 def save_to_chroma(chunks: list[Document]):
     # Delete the existing DB first.
     if os.path.exists(CHROMA_DB_PATH):
@@ -61,4 +62,4 @@ def save_to_chroma(chunks: list[Document]):
 
 
 if __name__ == "__main__":
-    main()
+    retrieve_data()

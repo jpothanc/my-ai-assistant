@@ -5,6 +5,9 @@ from langchain.prompts import ChatPromptTemplate
 from constants import CHROMA_DB_PATH, PROMPT_TEMPLATE
 
 
+# Query the Chroma DB with the user input.
+# If the similarity score is less than 0.7, then we will not return any results.
+# Pass the context text and the question to the ChatOpenAI model and get the response.
 def query_chroma(query_text):
     # Prepare the DB.
     embedding_function = OpenAIEmbeddings()
