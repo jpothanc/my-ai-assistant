@@ -1,4 +1,5 @@
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
+from langchain_ollama import OllamaLLM
 from langchain_openai import OpenAIEmbeddings
 from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
@@ -23,11 +24,21 @@ def query_chroma(query_text):
     prompt_template = ChatPromptTemplate.from_template(PROMPT_TEMPLATE)
     prompt = prompt_template.format(context=context_text, question=query_text)
 
+    # use_openai(prompt)
+    use_ollama(prompt)
+
+
+def use_openai(prompt):
     model = ChatOpenAI()
-    response_text = model.invoke(prompt)
-    # sources = [doc.metadata.get("source", None) for doc, _score in results]
-    formatted_response = f"Response: {response_text.content}"
+    response = model.invoke(prompt)
+    formatted_response = f"Response: {response.content}"
     print(formatted_response)
+
+
+def use_ollama(prompt):
+    model = OllamaLLM(model="llama3")
+    response = model.invoke(prompt)
+    print(response)
 
 
 def query_data():
