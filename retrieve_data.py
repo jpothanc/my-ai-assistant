@@ -1,11 +1,12 @@
 from langchain_community.document_loaders import DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain.schema import Documentpip
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.vectorstores import Chroma
 import openai
 import os
 import shutil
+
+from unstructured.documents.base import Document
 
 from constants import DATA_PATH, CHROMA_DB_PATH, CHUNK_SIZE, CHUNK_OVERLAP
 
